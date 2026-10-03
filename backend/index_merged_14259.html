@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>IONOS ULTIMATE AI</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">IONOS <span>ULTIMATE AI</span></div>
+    <nav><a href="#ai">AI</a><a href="#quantum">Quantum</a><a href="#shop">Shop</a></nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="singularity"></div>
+      <p class="eyebrow">QUANTUM LIGHT SYSTEM</p>
+      <h1>Intelligence beyond the interface.</h1>
+      <p>Modulares KI-System mit Chat, Mirror, Storyteller, Quantum-Simulation und Webshop.</p>
+    </section>
+
+    <section id="ai" class="panel">
+      <h2>IONOS AI</h2>
+      <textarea id="message" placeholder="Schreibe deine Nachricht..."></textarea>
+      <button onclick="chat()">KI fragen</button>
+      <pre id="output"></pre>
+    </section>
+
+    <section id="quantum" class="panel">
+      <h2>Quantum Light</h2>
+      <input id="qinput" placeholder="Eingabe für die Simulation">
+      <button onclick="quantum()">Simulieren</button>
+      <pre id="qoutput"></pre>
+    </section>
+
+    <section id="shop" class="panel">
+      <h2>Parfum Webshop</h2>
+      <div class="products">
+        <article><div class="product-image">BILD</div><h3>Aurelia</h3><p>49,90 €</p><a href="https://wa.me/" target="_blank">WhatsApp</a></article>
+        <article><div class="product-image">BILD</div><h3>Noctis</h3><p>59,90 €</p><a href="https://t.me/" target="_blank">Telegram</a></article>
+        <article><div class="product-image">BILD</div><h3>Lumina</h3><p>44,90 €</p><a href="https://wa.me/" target="_blank">Bestellen</a></article>
+      </div>
+    </section>
+  </main>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
