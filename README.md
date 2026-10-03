@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Ultra-KI-Merge
 
 Zentrale KI-Anwendung aus den analysierten Projekten.
@@ -19,3 +20,6 @@ Entfernt:
 - Build-/Cache-/Umgebungsdateien
 
 API-Schlüssel niemals direkt in den Quellcode schreiben.
+=======
+# Ultra_KI_Merge
+>>>>>>> 946a04b2b3f80b196930c3b6f968edf3eb6a5416
