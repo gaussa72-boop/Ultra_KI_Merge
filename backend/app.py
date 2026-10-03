@@ -22,10 +22,10 @@ from backend.quantum_mirror_backend import (
 )
 
 # Initialize Flask App
-app = Flask(__name__, 
-    static_folder='web',
-    static_url_path='',
-    template_folder='web')
+app = Flask(__name__,
+    static_folder='frontend',
+    static_url_path='/static',
+    template_folder='frontend')
 
 # Enable CORS
 CORS(app, origins=os.getenv('CORS_ORIGINS', '*').split(','))
@@ -135,21 +135,29 @@ def break_mirror(mirror_id):
 
 @app.route('/api/chat/send', methods=['POST'])
 def send_chat_message():
-    """Send chat message and get companion response"""
+    """Zentrale Ultra-KI Chat-Schnittstelle."""
     try:
-        data = request.get_json()
+        data = request.get_json(silent=True) or {}
         user_id = data.get('user_id', 1)
         room = data.get('room', 'Wunderland')
-        message = data.get('message')
-        
+        message = (data.get('message') or '').strip()
         if not message:
             return jsonify({"error": "No message provided"}), 400
-        
-        result = backend.send_chat_message(user_id, room, message)
-        return jsonify(result), 200
-    
+        from backend.services.ai_service import ask_ai
+        response = ask_ai(
+            message,
+            context=f"Chatraum: {room}",
+            profile="Ate Rea / Quantum User"
+        )
+        return jsonify({
+            "room": room,
+            "user_message": message,
+            "response": response,
+            "model": os.getenv("OPENAI_MODEL", "configured-model"),
+            "web_search": bool(data.get("web_search", False))
+        }), 200
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        return jsonify({"error": f"{type(e).__name__}: {e}"}), 500
 
 @app.route('/api/chat/messages/<room>', methods=['GET'])
 def get_chat_messages(room):
