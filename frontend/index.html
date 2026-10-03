@@ -1,24 +1,79 @@
-
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="de">
 <head>
-<meta charset="UTF-8">
-<title>Quantum KI ULTRA+</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050712">
+<title>ULTRA-KI — Quantum AI Merge</title>
 <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-<div class="background"></div>
+<div class="scene"></div><div class="aurora"></div><div class="noise"></div>
 
-<div class="avatar"></div>
+<header class="topbar glass">
+  <div class="brand">
+    <img src="/static/assets/ultra-orb.svg" alt="">
+    <div><b>ULTRA-KI</b><span>QUANTUM AI MERGE</span></div>
+  </div>
+  <nav>
+    <button class="nav active" data-view="chat">Chat</button>
+    <button class="nav" data-view="projects">Projekte</button>
+    <button class="nav" data-view="tools">Tools</button>
+    <button class="nav" data-view="web">Web-Suche</button>
+    <button class="nav" data-view="creative">Kreativ</button>
+    <button class="nav" data-view="settings">Einstellungen</button>
+  </nav>
+  <div class="account"><button class="icon-btn" id="searchBtn">⌕</button><button class="icon-btn" id="themeBtn">☼</button><img src="/static/assets/ultra-avatar.svg" alt=""><span><b>Ate Rea</b><small>Quantum User</small></span><span>⌄</span></div>
+</header>
 
-<div class="chat-container">
-    <div class="chat-box" id="chat-box"></div>
-    <div class="input-area">
-        <input type="text" id="user-input" placeholder="Sprich mit der Quantum KI...">
-        <button onclick="sendMessage()">Senden</button>
+<aside class="sidebar glass">
+  <button class="new-chat" id="newChat">＋ <span>Neuer Chat</span></button>
+  <div class="side-menu">
+    <button>◔ <span>Chatverlauf</span></button><button>♧ <span>KI-Agenten</span></button>
+    <button>▣ <span>Projekte</span></button><button>⇧ <span>Dateien & Upload</span></button>
+    <button>⌕ <span>Web-Suche</span></button><button>▧ <span>Bilder generieren</span></button>
+    <button>&lt;/&gt; <span>Code & Entwicklung</span></button><button>✣ <span>Apps & Integrationen</span></button>
+    <button>⚙ <span>Einstellungen</span></button>
+  </div>
+  <h4>Letzte Chats</h4>
+  <div class="recent"><button>◉ <span>Webshop Konzept</span></button><button>▧ <span>Parfum Namen Analyse</span></button><button>◫ <span>Render Deployment Fix</span></button><button>▣ <span>Telegram Bot Integration</span></button><button>✈ <span>Reiseplanung Thailand</span></button><button>◈ <span>Illuminati Fachbuch</span></button><button>⌘ <span>PyCharm Projekt Merge</span></button><button>✦ <span>Neue KI Funktionen</span></button><button>◉ <span>Quantenformel Projekt</span></button><button>文 <span>Sprachkurs Plan</span></button></div>
+</aside>
+
+<main class="main">
+  <section class="hero">
+    <div class="hero-orb"><img src="/static/assets/ultra-orb.svg" alt=""></div>
+    <h1>ULTRA-KI</h1><div class="subtitle">W O N D E R L A N D</div>
+    <p>Dein KI-Assistent für Wissen, Kreativität, Entwicklung und Freiheit.</p>
+  </section>
+
+  <section class="chat glass" id="chat">
+    <div class="messages" id="messages">
+      <div class="message user"><div class="bubble"><small>Du · 10:42</small><div>Hallo, kannst du mir bei meinem Projekt helfen?</div></div></div>
+      <div class="message ai"><img src="/static/assets/ultra-orb.svg"><div class="bubble"><small>Ultra-KI · 10:43</small><div>Natürlich. Ich helfe dir bei Programmierung, Webshops, KI-Funktionen, Design, Projekten und technischen Problemen.</div><div class="actions">◧　♡　♧　↻　⌯</div></div></div>
     </div>
-</div>
+    <div class="quick"><button>✦ Projekt analysieren</button><button>♧ Ideen entwickeln</button><button>&lt;/&gt; Code schreiben</button><button>◎ Web-Suche nutzen</button></div>
+    <form class="composer" id="composer">
+      <button type="button" class="round" id="attachBtn">＋</button>
+      <input id="input" autocomplete="off" placeholder="Schreibe eine Nachricht an Ultra-KI …">
+      <button type="button" class="mic">♩</button><button class="send" type="submit">➤</button>
+    </form>
+    <div class="composer-tools"><button>⚒ Tools</button><button>▧ Bilder</button><button>&lt;/&gt; Code</button><button id="webToggle">◎ Web-Suche</button><button>⌕ Dateien</button><button>♧ Agenten</button></div>
+  </section>
+</main>
 
-<script src="/static/script.js"></script>
-</body>
-</html>
+<aside class="rightbar">
+  <section class="panel glass"><h3>KI-Modelle</h3><div class="select"><span id="modelLabel">GPT-5.6 (Standard)</span><select id="model"><option value="gpt-5.6-sol">GPT-5.6 (Standard)</option><option value="gpt-5.6-cyber">GPT-5.6 Cyber</option></select></div>
+  <div class="section-title">Funktionen</div>
+  <label>◉ Web-Suche <input type="checkbox" id="webSearch" checked><i></i></label>
+  <label>▧ Bilder generieren <input type="checkbox" checked><i></i></label>
+  <label>&lt;/&gt; Code-Interpreter <input type="checkbox" checked><i></i></label>
+  <label>▱ Dateianalyse <input type="checkbox" checked><i></i></label>
+  <label>♧ Projekt-Assistent <input type="checkbox" checked><i></i></label>
+  <label>✣ Langzeitgedächtnis <input type="checkbox" checked><i></i></label>
+  </section>
+  <section class="panel glass"><h3>Dateien</h3><div class="drop" id="drop">⇧<br><span>Dateien hier ablegen</span><small>oder klicken zum Hochladen</small><input type="file" id="fileInput" hidden multiple></div></section>
+  <section class="panel glass"><h3>Schnellzugriff</h3><div class="shortcuts"><button>▣ Meine Projekte <b>→</b></button><button>▣ Webshops <b>→</b></button><button>◉ Telegram Bots <b>→</b></button><button>▣ Render Deployment <b>→</b></button><button>▤ Bücher & Texte <b>→</b></button><button>✈ Reiseplanung <b>→</b></button></div></section>
+</aside>
+
+<script src="/static/app.js"></script>
+</body></html>
