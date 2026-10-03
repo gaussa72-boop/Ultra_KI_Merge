@@ -8,6 +8,7 @@ import sys
 from flask import Flask, render_template, jsonify, request, send_from_directory
 from flask_cors import CORS
 from dotenv import load_dotenv
+from pathlib import Path
 
 # Load environment variables
 load_dotenv()
@@ -22,10 +23,13 @@ from backend.quantum_mirror_backend import (
 )
 
 # Initialize Flask App
+BASE_DIR = Path(__file__).resolve().parent.parent
+FRONTEND_DIR = BASE_DIR / 'frontend'
+
 app = Flask(__name__,
-    static_folder='frontend',
+    static_folder=str(FRONTEND_DIR),
     static_url_path='/static',
-    template_folder='frontend')
+    template_folder=str(FRONTEND_DIR))
 
 # Enable CORS
 CORS(app, origins=os.getenv('CORS_ORIGINS', '*').split(','))
@@ -40,7 +44,7 @@ backend = QuantumMirrorBackend()
 @app.route('/')
 def index():
     """Serve main HTML"""
-    return send_from_directory('frontend', 'index.html')
+    return send_from_directory(str(FRONTEND_DIR), 'index.html')
 
 @app.route('/health')
 def health():
