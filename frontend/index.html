@@ -35,7 +35,7 @@
       <button>↯ <span>Import / Merge</span></button>
       <button>☁ <span>KI-Chat</span></button>
       <button>⚙ <span>Projekt-Generator</span></button>
-      <button>◇ <span>Game Engine <em>ACTIVE</em></span></button>
+      <button id="gameEngineNav" class="game-engine-nav">◇ <span>Game Engine <em>ACTIVE</em></span></button>
       <button>◉ <span>Welten & Level</span></button>
       <button>⌁ <span>Raumschiffe</span></button>
       <button>♜ <span>Imperium & Kolonien</span></button>
@@ -79,7 +79,7 @@
     <section class="dashboard-grid">
       <article class="feature glass"><span class="feature-icon">◉</span><b>WISSEN ERKUNDEN</b><small>Notizen & Daten</small></article>
       <article class="feature glass"><span class="feature-icon">⌘</span><b>PROJEKTE BAUEN</b><small>Strategie & Code</small></article>
-      <article class="feature glass"><span class="feature-icon">↯</span><b>WELTEN ERSCHAFFEN</b><small>Simulation & Game Engine</small></article>
+      <article class="feature glass game-feature" id="gameEngineFeature" role="button" tabindex="0"><span class="feature-icon">↯</span><b>WELTEN ERSCHAFFEN</b><small>Simulation & Game Engine · AKTIV</small></article>
       <article class="feature glass"><span class="feature-icon">▧</span><b>DATEIEN ANALYSIEREN</b><small>PDF · DOCX · TXT · Bilder</small></article>
     </section>
 
@@ -93,7 +93,7 @@
       <div class="lab-grid">
         <div><b>ANALYSE</b><span>aktiv</span></div><div><b>CODE</b><span>aktiv</span></div>
         <div><b>MEMORY</b><span>bereit</span></div><div><b>PROJEKTE</b><span>bereit</span></div>
-        <div><b>GAME ENGINE</b><span>getrennt</span></div><div><b>WEB-SEARCH</b><span>bereit</span></div>
+        <div id="gameEngineStatus"><b>GAME ENGINE</b><span>aktiv</span></div><div><b>WEB-SEARCH</b><span>bereit</span></div>
       </div>
     </section>
   </main>
@@ -133,6 +133,6 @@
 </div>
 
 <footer class="quote-footer glass">Steige ein. Entdecke. Erkenne. Erschaffe. <strong>In neuen Welten.</strong><small>IONOS 7 · INTELLIGENCE WORKSPACE</small></footer>
-<script src="/static/app.js"></script>
+<script src="/static/app.js"></script><script>window.GAME_ENGINE_ACTIVE=true;</script>
 </body>
 </html>
