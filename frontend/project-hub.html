@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ultra KI Merge · Projekt-Hub</title>
+<style>
+:root{color-scheme:dark;--bg:#090b12;--panel:#131827;--line:#273148;--text:#edf2ff;--muted:#9aa8c3;--accent:#8b9cff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#1a2140 0,#090b12 55%);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+main{max-width:1180px;margin:auto;padding:36px 20px}header{margin-bottom:28px}h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.05;margin:0 0 12px}p{color:var(--muted)}.tools{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0}.tools input,.tools select{background:#101522;color:var(--text);border:1px solid var(--line);border-radius:12px;padding:12px;font:inherit}.tools input{flex:1;min-width:220px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}.card{background:linear-gradient(160deg,#171e31,#101420);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;min-height:160px}.card h2{font-size:1.1rem;margin:0 0 8px}.meta{font-size:.82rem;color:var(--muted);margin-bottom:14px}.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}.links a{color:#cbd4ff;border:1px solid #3a4772;border-radius:10px;padding:8px 11px;text-decoration:none;font-size:.9rem}.links a:hover{background:#242e50}.empty{padding:24px;color:var(--muted)}footer{margin-top:28px;color:var(--muted);font-size:.85rem}
+</style></head>
+<body><main>
+<header><div class="meta">ULTRA KI MERGE / CONTROL CENTER</div><h1>Dein Projekt-Hub</h1><p>Ein zentraler Einstieg zu den erfassten Render-Webservices und GitHub-Repositories. Suche nach Namen oder filtere nach Bereich. Projektlinks öffnen in einem neuen Tab.</p>
+<div class="tools"><input id="search" type="search" placeholder="Projekt, Repository oder Service suchen…"><select id="category"><option value="">Alle Bereiche</option><option>KI & Plattformen</option><option>Webshops & Business</option><option>Creative & Games</option><option>Weitere Projekte</option></select></div></header>
+<section id="projects" class="grid" aria-live="polite"></section>
+<footer>Hub-Verzeichnis · Die Links sind Einstiege, keine Status- oder Verfügbarkeitsgarantie. Änderungen an Projekten erfolgen weiterhin in deren jeweiligen Repositories.</footer>
+</main>
+<script>
+const projects = [
+{n:"Quantum KI Ultra Pro V2",c:"KI & Plattformen",r:"gaussa72-boop/Quantum.KI.Ultra.Pro.V2",u:"https://quantum-ki-ultra-pro-v2.onrender.com"},
+{n:"Quantum Super Intelligence",c:"KI & Plattformen",r:"gaussa72-boop/Quantum.K",u:"https://quantum-super-intelligence.onrender.com"},
+{n:"Quantum.AI",c:"KI & Plattformen",r:"gaussa72-boop/Quantum.AI.",u:"https://quantum-ai-zeah.onrender.com"},
+{n:"Quantum AI Chat",c:"KI & Plattformen",r:"gaussa72-boop/Quantum.AI.",u:"https://quantumai-chat.onrender.com"},
+{n:"Quantum Mirror Wonderland",c:"Creative & Games",r:"gaussa72-boop/Quantum.MIrror.Wonderland",u:"https://quantum-mirror-wonderland.onrender.com"},
+{n:"Dark Mirror AI Game Studio",c:"Creative & Games",r:"gaussa72-boop/QUANTUM-MIRROR-DARK-WONDERLAND",u:"https://dark-mirror-ai-game-studio.onrender.com"},
+{n:"Quantenformel",c:"KI & Plattformen",r:"gaussa72-boop/Quantenformel",u:"https://quantenformel.onrender.com"},
+{n:"Ultra KI Merge",c:"KI & Plattformen",r:"gaussa72-boop/Ultra_KI_Merge",u:"https://ultra-ki-merge.onrender.com"},
+{n:"Quantum Singularity",c:"KI & Plattformen",r:"gaussa72-boop/Quantum_Singularity",u:"https://quantum-singularity.onrender.com"},
+{n:"IONOS AI",c:"KI & Plattformen",r:"gaussa72-boop/Ultra_KI_Merge",u:"https://ionos-ai.onrender.com"},
+{n:"IONOS-8",c:"KI & Plattformen",r:"gaussa72-boop/IONOS-8",u:"https://ionos-8.onrender.com"},
+{n:"IONOS-KI",c:"KI & Plattformen",r:"gaussa72-boop/IONOS-KI",u:"https://ionos-ki.onrender.com"},
+{n:"AI Quantumlight",c:"KI & Plattformen",r:"gaussa72-boop/AI-Quantumlight",u:"https://ai-quantumlight.onrender.com"},
+{n:"Quantum-KI-CAT.CHAT",c:"KI & Plattformen",r:"gaussa72-boop/Quantum-KI-CAT.CHAT.",u:"https://quantum-ki-cat-chat.onrender.com"},
+{n:"UltraKI AI",c:"KI & Plattformen",r:"gaussa72-boop/UltraKI.AI",u:"https://ultraki-ai.onrender.com"},
+{n:"Quantum Shield",c:"KI & Plattformen",r:"gaussa72-boop/Quantum-Shield",u:"https://github.com/gaussa72-boop/Quantum-Shield"},
+{n:"Aktiv-Lyca Main",c:"Webshops & Business",r:"gaussa72-boop/Aktiv-Lyca",u:"https://aktiv-lyca-main.onrender.com"},
+{n:"Webshop SIM",c:"Webshops & Business",r:"gaussa72-boop/Aktiv-Lyca",u:"https://webshop-sim-q89f.onrender.com"},
+{n:"Webshop Parfum",c:"Webshops & Business",r:"ariandomimate-blip/Webshop.Parfum",u:"https://webshop-parfum-i91u.onrender.com"},
+{n:"BullRun Apparel",c:"Webshops & Business",r:"gaussa72-boop/Bullrun.Apparel",u:"https://github.com/gaussa72-boop/Bullrun.Apparel"},
+{n:"Rothshild Order",c:"Webshops & Business",r:"ariandomimate-blip/rothshild-order",u:"https://the-house-of-rothshild-illuminati.onrender.com"},
+{n:"Rothshild Order API",c:"Webshops & Business",r:"ariandomimate-blip/rothshild-order",u:"https://rothshild-order-api.onrender.com"},
+{n:"Rothshild Application Portal",c:"Webshops & Business",r:"ariandomimate-blip/rothshild-order",u:"https://rothshild-application-portal.onrender.com"},
+{n:"Business Real Estate Membership",c:"Webshops & Business",r:"ariandomimate-blip/rothshild-order",u:"https://business-real-estate-membership.onrender.com"},
+{n:"NovaLaunch Demo",c:"Webshops & Business",r:"ariandomimate-blip/rothshild-order",u:"https://novalaunch-demo.onrender.com"},
+{n:"Drop-shipping Store",c:"Webshops & Business",r:"ariandomimate-blip/Drop-shipping",u:"https://dropshift-store.onrender.com"},
+{n:"Rea.Signature",c:"Creative & Games",r:"gaussa72-boop/Rea.Signature",u:"https://rea-signature.onrender.com"},
+{n:"Ate Rea Vermächtnis",c:"Creative & Games",r:"gaussa72-boop/Ate-Rea-Verm-chtnis",u:"https://ate-rea-vermachtnis.onrender.com"},
+{n:"Ate Rea Chronik",c:"Creative & Games",r:"ariandomimate-blip/Ate-Rea-Verm-chtnis-chronik",u:"https://github.com/ariandomimate-blip/Ate-Rea-Verm-chtnis-chronik"},
+{n:"KI Game Mod",c:"Creative & Games",r:"gaussa72-boop/KI-Game-Mod",u:"https://ki-game-mod.onrender.com"},
+{n:"Note-KI",c:"Weitere Projekte",r:"gaussa72-boop/Note-KI",u:"https://note-ki.onrender.com"},
+{n:"iPad App IONOS-7",c:"Weitere Projekte",r:"gaussa72-boop/IPad-App.IONOS-7",u:"https://ipad-app-ionos-7.onrender.com"},
+{n:"Galactic AI V3",c:"KI & Plattformen",r:"gaussa72-boop/galactic-ai-v3",u:"https://galactic-ai-v3.onrender.com"}
+];
+const root=document.querySelector("#projects"), search=document.querySelector("#search"), category=document.querySelector("#category");
+function draw(){const q=search.value.toLowerCase(),c=category.value;const rows=projects.filter(p=>(!c||p.c===c)&&[p.n,p.r,p.c].join(" ").toLowerCase().includes(q));root.innerHTML=rows.length?rows.map(p=>'<article class="card"><h2>'+p.n+'</h2><div class="meta">'+p.c+' · '+p.r+'</div><div class="links"><a href="'+p.u+'" target="_blank" rel="noopener noreferrer">Webservice öffnen ↗</a><a href="https://github.com/'+p.r+'" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></article>').join(""):'<div class="empty">Keine passenden Projekte gefunden.</div>'}
+search.addEventListener("input",draw);category.addEventListener("change",draw);draw();
+</script></body></html>
