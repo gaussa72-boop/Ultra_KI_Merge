@@ -28,42 +28,21 @@ def _client():
 
 def ask_ai(message: str, context=None, profile=None) -> str:
     message = (message or "").strip()
-
     if not message:
-        return "Bitte gib eine Nachricht ein."
-
+        raise RuntimeError("Bitte gib eine Nachricht ein.")
+    if os.getenv("AI_ENABLED", "true").strip().lower() != "true":
+        raise RuntimeError("Die KI ist mit AI_ENABLED=false deaktiviert.")
     client = _client()
-
     if client is None:
-        return (
-            "Demo-Modus: OPENAI_API_KEY ist noch nicht gesetzt.\n\n"
-            f"Nachricht: {message}"
-        )
-
-    model = os.getenv("OPENAI_MODEL")
-
-    if not model:
-        return (
-            "Die KI ist noch nicht vollständig konfiguriert. "
-            "Bitte OPENAI_MODEL als Environment Variable setzen."
-        )
-
+        raise RuntimeError("OPENAI_API_KEY fehlt in den Render Environment Variables.")
+    model = os.getenv("OPENAI_MODEL", "gpt-4o-mini").strip()
     instructions = SYSTEM
-
     if profile:
         instructions += f"\nBenutzerprofil:\n{profile}"
-
     if context:
         instructions += f"\nKontext:\n{context}"
-
     try:
-        response = client.responses.create(
-            model=model,
-            instructions=instructions,
-            input=message,
-        )
-
+        response = client.responses.create(model=model, instructions=instructions, input=message)
         return response.output_text or "Die KI hat keine Textantwort zurückgegeben."
-
     except Exception as exc:
-        return f"OpenAI-Fehler: {type(exc).__name__}: {exc}"
+        raise ValueError("OpenAI-Anfrage fehlgeschlagen. Prüfe API-Key, Modellfreigabe und Guthaben.") from exc
