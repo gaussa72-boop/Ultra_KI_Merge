@@ -52,7 +52,10 @@ def health():
     return jsonify({
         "status": "healthy",
         "service": "Quantum Mirror Wonderland",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "ai_configured": bool(os.getenv("OPENAI_API_KEY", "").strip()) and os.getenv("AI_ENABLED", "true").lower() == "true",
+        "model": os.getenv("OPENAI_MODEL", "gpt-4o-mini"),
+        "ai_enabled": os.getenv("AI_ENABLED", "true").lower() == "true"
     }), 200
 
 # ============================================================================
@@ -160,8 +163,13 @@ def send_chat_message():
             "model": os.getenv("OPENAI_MODEL", "configured-model"),
             "web_search": bool(data.get("web_search", False))
         }), 200
-    except Exception as e:
-        return jsonify({"error": f"{type(e).__name__}: {e}"}), 500
+    except RuntimeError as e:
+        return jsonify({"error": str(e)}), 503
+    except ValueError as e:
+        return jsonify({"error": str(e)}), 502
+    except Exception:
+        app.logger.exception("Ultra-KI chat endpoint failed")
+        return jsonify({"error": "Die KI-Anfrage ist fehlgeschlagen. Prüfe Render-Logs."}), 500
 
 @app.route('/api/chat/messages/<room>', methods=['GET'])
 def get_chat_messages(room):
