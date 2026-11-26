@@ -1,32 +1,30 @@
 # AUREALIS OMNIA — Alliance AI
 
-A unified project cockpit prototype added to the existing `Ultra_KI_Merge` repository.
+Responsive German-language cosmic project cockpit.
 
-## What is included
-- Responsive German-language cosmic/steampunk dashboard.
-- Clickable navigation for overview, apps, repositories, 10 agent roles, per-project website-agent registry, personalities, update matrix, deployments, monitoring and chat.
-- Static project catalog based on repositories visible in the two connected GitHub accounts at creation time.
-- Direct GitHub links for every catalogued repository.
-- Explicit UI labels distinguishing catalogued projects from services that are actually integrated or deployed.
+## Live application
+https://aurealis-omnia-alliance-ai.onrender.com
 
-## Important implementation boundaries
-- The chat is a local UI prototype, not a live LLM connection.
-- Per-project agents are a registry/architecture proposal, not active autonomous agents.
-- The Update Matrix is a workflow/status view, not yet a running webhook or CI/CD automation.
-- No API keys, database credentials, or private tokens are embedded in frontend code.
-- No existing projects or repositories are overwritten by this static dashboard.
+## Current integrations
+- 45 repositories catalogued from the two connected GitHub accounts.
+- 53 Render services inventoried; 35 of the 45 repositories have at least one matching service.
+- Service links are shown only when returned by the connected Render account.
+- Ten named agent/persona profiles are available in the UI.
+- The chat frontend is wired to the Quantum KI Ultra Pro V2 `POST /api/chat` endpoint at `https://quantum-ki-ultra-pro-v2-renewed.onrender.com`.
+- The API allows CORS only from this Alliance AI dashboard origin.
 
-## Run locally
-Open `unified-app/index.html` in a browser.
+## Current limitations
+- The chat code and API deployment are live, but an end-to-end browser chat test and provider readiness check have not yet been completed.
+- Agent profiles are role prompts routed through the shared model; they are not ten independent autonomous model instances.
+- Per-project website agents are registry entries only. No background maintenance workers are running.
+- GitHub repository webhooks, automatic test gates, approvals, persistent orchestration database and automatic future-project discovery are not yet configured.
+- Render service records indicate configured services, not guaranteed healthy public websites.
 
-## Deploy on Render
-Create a Static Site from this repository, branch `main`, publish directory `unified-app`, with no build command required.
+## Deployment
+- GitHub repository: gaussa72-boop/Ultra_KI_Merge
+- Branch: main
+- Render static publish directory: unified-app
+- Build command: `echo "Static assets ready"`
 
-## Next integration phase
-1. Add a backend service with authenticated GitHub and Render integrations.
-2. Store credentials only as encrypted server-side environment variables.
-3. Import repository/service metadata dynamically rather than relying on the initial static catalog.
-4. Implement per-project agents with explicit scopes and human approval for writes/deployments.
-5. Implement Update Matrix webhooks, test gates, deployment verification, and an auditable event log.
-6. Connect PostgreSQL only after confirming the target service and schema.
-
+## Security
+No API keys or shared tokens belong in the frontend. Any write-enabled agent needs scoped server-side credentials, audit logs, backups, tests and explicit approval gates.
