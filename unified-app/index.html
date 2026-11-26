@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#09070d"><title>AUREALIS OMNIA — Alliance AI</title><style>
+:root{--bg:#09070d;--panel:#15111d;--gold:#eabf69;--gold2:#ffdf9a;--line:#6d512b;--muted:#b7a991;--violet:#9a7cff;--cyan:#70d9ed;--green:#68d8a0}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% 0%,#39200f 0,#130e19 36%,#08070c 80%);color:#f7edda;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}button,input{font:inherit}.shell{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.side{position:sticky;top:0;height:100vh;padding:22px 14px;border-right:1px solid #73532c;background:#0b0910eF;backdrop-filter:blur(18px);display:flex;flex-direction:column;gap:8px}.brand{padding:10px 12px 24px;border-bottom:1px solid #574125;margin-bottom:10px}.sigil{width:48px;height:48px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold2);font-size:25px;box-shadow:0 0 22px #eabf6944;float:left;margin-right:12px}.brand b{display:block;letter-spacing:2px;color:var(--gold2);font-family:Georgia,serif}.brand small{color:var(--muted);letter-spacing:1px}.nav{width:100%;text-align:left;border:1px solid transparent;border-radius:11px;padding:12px 13px;color:#d8c8a9;background:transparent;cursor:pointer;transition:.2s}.nav:hover,.nav.active{border-color:#9c7137;background:linear-gradient(90deg,#6b411d77,#1d1722);color:#ffe2a4;box-shadow:inset 0 0 18px #f6b64b18,0 0 14px #eabf6920}.sidefoot{margin-top:auto;color:#897c6b;font-size:11px;padding:10px}.main{min-width:0;padding:22px 26px 50px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.eyebrow{color:var(--gold);letter-spacing:3px;font-size:11px;text-transform:uppercase}.top h1{font:clamp(25px,4vw,42px) Georgia,serif;margin:6px 0;color:#ffe4ad;text-shadow:0 0 24px #ffbf5b55}.status{border:1px solid #3d694f;background:#10251d;color:#8ee4b1;border-radius:30px;padding:8px 13px;font-size:12px}.hero{margin:20px 0 18px;min-height:330px;border:1px solid #8b632e;border-radius:22px;overflow:hidden;position:relative;background:radial-gradient(circle at 50% 50%,#ffcf5d55 0 3%,#a95d1e33 12%,transparent 31%),radial-gradient(ellipse at 50% 100%,#8e4c1b66,transparent 60%),linear-gradient(135deg,#21162b,#0c0c18 52%,#21142a);box-shadow:0 18px 70px #0009,inset 0 0 70px #e7a94316}.hero:before,.hero:after{content:"";position:absolute;inset:-40%;background:repeating-conic-gradient(from 0deg at 50% 50%,transparent 0 9deg,#e7b65b16 9.2deg 9.5deg,transparent 9.8deg 18deg);animation:turn 100s linear infinite}.hero:after{inset:8%;border:1px solid #c48e3b55;border-radius:50%;box-shadow:0 0 0 26px #d49a3c12,0 0 0 54px #d49a3c0b,0 0 48px #ffce6c2a;animation:none}.core{position:absolute;z-index:2;left:50%;top:47%;transform:translate(-50%,-50%);width:190px;height:190px;border-radius:50%;display:grid;place-items:center;text-align:center;border:1px solid #ffdb8a;background:radial-gradient(circle,#ffe4a8 0,#e99a34 8%,#6c361a 24%,#170e1d 65%);box-shadow:0 0 30px #ffca5e,0 0 90px #ed9a2d88,inset 0 0 28px #ffda7c66}.core strong{font:24px Georgia,serif;color:#fff0c9;text-shadow:0 0 12px #ffb347}.core span{font-size:10px;letter-spacing:2px;color:#f3d6a0}.orbit{position:absolute;z-index:3;left:50%;top:47%;width:min(78vw,780px);height:260px;transform:translate(-50%,-50%);pointer-events:none}.planet{pointer-events:auto;position:absolute;width:96px;height:96px;border:1px solid #dfad55;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe9a4,#6f421d 26%,#1a1022 70%);box-shadow:0 0 20px #ffb74b66;display:grid;place-items:center;text-align:center;color:#ffe1a1;font-size:10px;letter-spacing:1px;cursor:pointer;transition:.3s}.planet:hover{transform:scale(1.14);box-shadow:0 0 34px #ffcb65}.p1{left:3%;top:25%}.p2{left:23%;top:-5%}.p3{right:22%;top:-5%}.p4{right:3%;top:25%}.p5{left:17%;bottom:-4%}.p6{right:17%;bottom:-4%}.heroNote{position:absolute;bottom:18px;left:24px;right:24px;text-align:center;color:#d8c6a6;font-size:12px;z-index:4}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:16px 0}.metric,.panel{border:1px solid #5b4429;background:linear-gradient(145deg,#1a1420,#100d16);border-radius:15px;padding:16px;box-shadow:0 10px 28px #0005}.metric small{color:var(--muted)}.metric strong{display:block;color:var(--gold2);font-size:25px;margin-top:5px}.section{display:none}.section.active{display:block}.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:22px 0 14px;flex-wrap:wrap}.sectionhead h2{font:24px Georgia,serif;color:#ffe0a0;margin:0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.tile{border:1px solid #5b4429;background:linear-gradient(145deg,#1c1723,#100d16);border-radius:14px;padding:15px;min-height:122px;transition:.2s}.tile:hover{border-color:#d8a44e;transform:translateY(-2px);box-shadow:0 12px 28px #0007}.tile h3{font:17px Georgia,serif;margin:0 0 7px;color:#ffe2a8}.tile p{font-size:12px;color:#bcae98;line-height:1.5;margin:0 0 12px}.tile a,.tile button,.action{display:inline-block;border:1px solid #866233;border-radius:8px;padding:7px 10px;color:#f6d69b;background:#291d19;text-decoration:none;font-size:11px;cursor:pointer}.search{background:#0c0a10;border:1px solid #70552f;border-radius:10px;padding:11px 14px;color:#f8e8c9;min-width:220px}.agentIcon{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,#ffdf92,#70421b);color:#26170b;font-size:18px;float:right}.agent{min-height:145px}.tag{font-size:10px;border:1px solid #68502f;border-radius:20px;padding:4px 8px;color:#d8bb86;display:inline-block}.matrixrow{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid #3b3026;font-size:13px}.pending{color:#f1c477}.connected{color:#82dca8}.chat{display:grid;grid-template-columns:1fr;gap:12px}.chatbox{height:230px;overflow:auto;background:#09080d;border:1px solid #6b4e2d;border-radius:12px;padding:14px}.bubble{max-width:85%;padding:10px 13px;border-radius:12px;margin:8px 0;background:#251c2a;color:#f2dfbd;font-size:13px}.bubble.me{margin-left:auto;background:#49311b}.chatrow{display:flex;gap:8px}.chatrow input{flex:1;min-width:0}.note{color:#9c907f;font-size:11px;line-height:1.5}.footer{margin-top:30px;border-top:1px solid #4c3926;padding-top:16px;color:#938571;font-size:11px}@keyframes turn{to{transform:rotate(360deg)}}@media(max-width:850px){.shell{grid-template-columns:1fr}.side{height:auto;position:relative;display:flex;flex-direction:row;overflow:auto;align-items:center;border-right:0;border-bottom:1px solid #73532c;padding:8px}.brand{display:none}.nav{white-space:nowrap;width:auto;padding:9px}.sidefoot{display:none}.main{padding:15px}.hero{min-height:300px}.orbit{width:90vw}.planet{width:68px;height:68px;font-size:8px}.core{width:145px;height:145px}.metrics{grid-template-columns:repeat(2,1fr)}}@media(max-width:440px){.p1{left:-1%}.p4{right:-1%}.heroNote{font-size:10px}.metric strong{font-size:21px}}
+</style></head><body><div class="shell"><aside class="side"><div class="brand"><div class="sigil">✧</div><b>AUREALIS OMNIA</b><small>ALLIANCE AI · COSMIC OS</small></div>
+<button class="nav active" data-view="overview">⌂ Übersicht</button><button class="nav" data-view="apps">✧ Alle Web-Apps</button><button class="nav" data-view="repos">⌘ Repositories</button><button class="nav" data-view="agents">☼ 10 Agenten</button><button class="nav" data-view="webagents">✦ Website-Agenten</button><button class="nav" data-view="personalities">◉ KI-Persönlichkeiten</button><button class="nav" data-view="matrix">⟳ Update Matrix</button><button class="nav" data-view="deploys">↗ Deployments</button><button class="nav" data-view="monitor">⌁ Monitoring</button><button class="nav" data-view="chat">✧ KI-Chat</button><div class="sidefoot">Ein gemeinsames Cockpit für alle Projekte.<br>Verbindungen werden transparent ausgewiesen.</div></aside>
+<main class="main"><div class="top"><div><div class="eyebrow">Dein verbundenes Projekt-Universum</div><h1>AUREALIS OMNIA</h1><div style="color:#b9a98e;font-size:13px">Alliance AI · Zentrale für Apps, Agenten und Updates</div></div><div class="status">● Cockpit bereit · Live-Integrationen in Prüfung</div></div>
+<section id="overview" class="section active"><div class="hero"><div class="core"><div><strong>AUREALIS</strong><br><span>ALLIANCE AI<br>ORCHESTRIERUNG · WISSEN · KOORDINATION</span></div></div><div class="orbit"><button class="planet p1" data-go="apps">WEB-APPS<br>PROJEKTWELTEN</button><button class="planet p2" data-go="agents">10 AGENTEN<br>KI-KREIS</button><button class="planet p3" data-go="repos">REPOSITORIES<br>CODE-ARCHIV</button><button class="planet p4" data-go="matrix">UPDATE MATRIX<br>VERSIONEN</button><button class="planet p5" data-go="webagents">WEBSITE-AGENTEN<br>WARTUNG</button><button class="planet p6" data-go="chat">KI-CHAT<br>DIALOG</button></div><div class="heroNote">Wähle einen Lichtstern oder einen Menüpunkt, um den jeweiligen Bereich zu öffnen.</div></div>
+<div class="metrics"><div class="metric"><small>GitHub-Repositories im Katalog</small><strong id="repoCount">—</strong></div><div class="metric"><small>KI-Agenten im Konzept</small><strong>10</strong></div><div class="metric"><small>Website-Agenten geplant</small><strong id="siteCount">—</strong></div><div class="metric"><small>Verifizierte Live-Verbindungen</small><strong>0</strong></div></div>
+<div class="sectionhead"><h2>Schnellzugriff</h2></div><div class="grid"><div class="tile"><h3>Alle Web-Apps</h3><p>Projektübersicht mit direktem Repository-Zugriff.</p><button class="action" data-go="apps">Öffnen ↗</button></div><div class="tile"><h3>Update Matrix</h3><p>Änderungen, Tests, Freigaben und Deployment-Status transparent bündeln.</p><button class="action" data-go="matrix">Matrix öffnen ↗</button></div><div class="tile"><h3>Website-Agenten</h3><p>Ein eigener Wartungs-Agent pro Projekt – als Zielarchitektur.</p><button class="action" data-go="webagents">Agenten verwalten ↗</button></div><div class="tile"><h3>KI-Zentrale</h3><p>Chat-Oberfläche und Agenten-Auswahl. Live-KI benötigt noch eine sichere API-Anbindung.</p><button class="action" data-go="chat">Chat öffnen ↗</button></div></div></section>
+<section id="apps" class="section"><div class="sectionhead"><h2>Alle Web-Apps & Projektwelten</h2><input class="search" id="appSearch" placeholder="Projekt suchen …"></div><div class="grid" id="appGrid"></div></section>
+<section id="repos" class="section"><div class="sectionhead"><h2>GitHub-Repositories</h2><input class="search" id="repoSearch" placeholder="Repository suchen …"></div><div class="grid" id="repoGrid"></div></section>
+<section id="agents" class="section"><div class="sectionhead"><h2>Der Kreis der zehn Agenten</h2><span class="tag">Rollenmodell · konfigurierbar</span></div><div class="grid" id="agentGrid"></div><p class="note">Die Agenten sind hier als Rollen und auswählbare Profile angelegt. Sie führen noch keine Hintergrundaktionen aus, solange keine jeweiligen Modell-, Tool- und Berechtigungsverbindungen eingerichtet und getestet sind.</p></section>
+<section id="webagents" class="section"><div class="sectionhead"><h2>Ein Agent pro Website / Projekt</h2><span class="tag">Zielarchitektur · nicht automatisch aktiviert</span></div><div class="panel"><p>Jedes Projekt erhält einen eigenen Agenten mit eigenem Namen, Wissensbereich, Persönlichkeitsprofil, Repository-Kontext und Wartungsprotokoll. Änderungen laufen künftig über Prüfung → Tests → Freigabe → Deployment. Bestehende Projekte werden nicht ungefragt überschrieben.</p><div id="siteAgentGrid" class="grid"></div></div></section>
+<section id="personalities" class="section"><div class="sectionhead"><h2>KI-Persönlichkeiten</h2></div><div class="panel"><p>Wähle ein Rollenprofil, ohne die Eigenständigkeit anderer Projekt-KIs zu überschreiben.</p><select class="search" id="personaSelect"><option>Aurealis · zentrale Koordination</option><option>Ate Rea · kreativ und poetisch</option><option>Orion · strategisch und analytisch</option><option>Quantar · Technik und Code</option><option>Lyra · Kommunikation und Community</option><option>Vaelar · Sicherheit und Prüfung</option></select><p id="personaDesc" class="note">Zentrale Koordination, Zusammenfassung und Routing – mit menschlicher Freigabe für kritische Änderungen.</p></div></section>
+<section id="matrix" class="section"><div class="sectionhead"><h2>Update Matrix</h2><span class="tag">Protokoll & Steuerzentrale</span></div><div class="panel"><p>Geplante Pipeline: Änderungen erkennen → betroffene Projekte zuordnen → Backup/Branch → statische und funktionale Tests → Review → autorisiertes Deployment → Live-Prüfung → Ergebnis protokollieren.</p><div class="matrixrow"><span>Projektinventar aus verbundenen GitHub-Konten</span><b class="connected">Katalog geladen</b><span>✓</span></div><div class="matrixrow"><span>Automatische Repository-Überwachung</span><b class="pending">Noch nicht verbunden</b><span>—</span></div><div class="matrixrow"><span>Agenten-gestützte Fehleranalyse</span><b class="pending">Noch nicht aktiviert</b><span>—</span></div><div class="matrixrow"><span>Test- und Freigabepipeline</span><b class="pending">Noch nicht eingerichtet</b><span>—</span></div><div class="matrixrow"><span>Automatische Deployments</span><b class="pending">Nicht pauschal freigegeben</b><span>—</span></div><p class="note">Diese Ansicht zeigt den vorgesehenen Ablauf, nicht bereits laufende Automationen. API-Schlüssel und Datenbank-Zugangsdaten gehören ausschließlich in geschützte Umgebungsvariablen.</p></div></section>
+<section id="deploys" class="section"><div class="sectionhead"><h2>Deployments</h2></div><div class="panel"><p>Hier werden nach Anbindung von Render Services, Branch, Commit, Build- und Laufzeitstatus sowie Live-URL zusammengeführt.</p><a class="action" href="https://dashboard.render.com/" target="_blank" rel="noopener">Render Dashboard öffnen ↗</a> <a class="action" href="https://github.com/gaussa72-boop/Ultra_KI_Merge" target="_blank" rel="noopener">Merge Repository ↗</a><p class="note">Es werden keine erfundenen Deploy-Zahlen oder Live-Status angezeigt.</p></div></section>
+<section id="monitor" class="section"><div class="sectionhead"><h2>System-Monitoring</h2></div><div class="grid"><div class="tile"><h3>GitHub</h3><p>Repository-Katalog ist aus zwei verbundenen Konten geladen. Laufende Webhooks noch nicht verifiziert.</p></div><div class="tile"><h3>Render</h3><p>Dashboard-Link verfügbar. Service-Metriken und Deployments müssen je Projekt angebunden werden.</p></div><div class="tile"><h3>Sicherheit</h3><p>Keine Secrets im Frontend. Schreibende Aktionen benötigen Rollen und Freigaben.</p></div></div></section>
+<section id="chat" class="section"><div class="sectionhead"><h2>KI-Chat · AUREALIS</h2><span class="tag">UI-Prototyp</span></div><div class="panel chat"><div class="chatbox" id="chatbox"><div class="bubble">Willkommen im AUREALIS-Cockpit. Wähle ein Agentenprofil und schreibe eine Nachricht. Diese Demo-Oberfläche antwortet lokal; eine echte KI-Verbindung wird erst nach sicherer Backend-Anbindung aktiv.</div></div><select class="search" id="chatAgent"><option>Aurealis · Zentrale</option><option>Ate Rea · Kreativität</option><option>Orion · Strategie</option><option>Quantar · Technik</option><option>Lyra · Community</option><option>Vaelar · Sicherheit</option><option>Nexus · Integration</option><option>Cosmia · Design</option><option>Tethys · Daten</option><option>Lumen · Wissen</option></select><div class="chatrow"><input class="search" id="chatInput" placeholder="Nachricht an die Alliance AI …"><button class="action" id="sendChat">Senden ↗</button></div></div></section>
+<div class="footer">AUREALIS OMNIA · Alliance AI · Projektcockpit v0.1 · Datenstand: GitHub-Repositorien der verbundenen Konten. Keine Hintergrundaktionen ohne echte Integration und Verifikation.</div></main></div>
+<script>
+const projects=[
+  {
+    "name": "Quantum.K",
+    "owner": "gaussa72-boop",
+    "category": "AI / Quanten",
+    "url": "https://github.com/gaussa72-boop/Quantum.K"
+  },
+  {
+    "name": "Quantum.AI.",
+    "owner": "gaussa72-boop",
+    "category": "KI-Plattform",
+    "url": "https://github.com/gaussa72-boop/Quantum.AI."
+  },
+  {
+    "name": "Quantum.KI.Ultra.Pro.V2",
+    "owner": "gaussa72-boop",
+    "category": "KI-Plattform",
+    "url": "https://github.com/gaussa72-boop/Quantum.KI.Ultra.Pro.V2"
+  },
+  {
+    "name": "ultra-ki-v2",
+    "owner": "gaussa72-boop",
+    "category": "KI-Plattform",
+    "url": "https://github.com/gaussa72-boop/ultra-ki-v2"
+  },
+  {
+    "name": "UltraKI.AI",
+    "owner": "gaussa72-boop",
+    "category": "KI-Plattform",
+    "url": "https://github.com/gaussa72-boop/UltraKI.AI"
+  },
+  {
+    "name": "IONOS-7",
+    "owner": "gaussa72-boop",
+    "category": "Agenten / Plattform",
+    "url": "https://github.com/gaussa72-boop/IONOS-7"
+  },
+  {
+    "name": "IONOS-KI",
+    "owner": "gaussa72-boop",
+    "category": "KI-Plattform",
+    "url": "https://github.com/gaussa72-boop/IONOS-KI"
+  },
+  {
+    "name": "IPad-App.IONOS-7",
+    "owner": "gaussa72-boop",
+    "category": "App",
+    "url": "https://github.com/gaussa72-boop/IPad-App.IONOS-7"
+  },
+  {
+    "name": "Quantum.MIrror.Wonderland",
+    "owner": "gaussa72-boop",
+    "category": "Kreativ / KI",
+    "url": "https://github.com/gaussa72-boop/Quantum.MIrror.Wonderland"
+  },
+  {
+    "name": "AI-Quantumlight",
+    "owner": "gaussa72-boop",
+    "category": "KI / Quanten",
+    "url": "https://github.com/gaussa72-boop/AI-Quantumlight"
+  },
+  {
+    "name": "Quantum-KI-CAT.CHAT.",
+    "owner": "gaussa72-boop",
+    "category": "KI-Chat",
+    "url": "https://github.com/gaussa72-boop/Quantum-KI-CAT.CHAT."
+  },
+  {
+    "name": "IONOS-8",
+    "owner": "gaussa72-boop",
+    "category": "KI-Plattform",
+    "url": "https://github.com/gaussa72-boop/IONOS-8"
+  },
+  {
+    "name": "Quantum_Singularity",
+    "owner": "gaussa72-boop",
+    "category": "KI / Systeme",
+    "url": "https://github.com/gaussa72-boop/Quantum_Singularity"
+  },
+  {
+    "name": "galactic-ai-v3",
+    "owner": "gaussa72-boop",
+    "category": "KI-Plattform",
+    "url": "https://github.com/gaussa72-boop/galactic-ai-v3"
+  },
+  {
+    "name": "codex-relay",
+    "owner": "gaussa72-boop",
+    "category": "Entwickler / API",
+    "url": "https://github.com/gaussa72-boop/codex-relay"
+  },
+  {
+    "name": "Bullrun.Apparel",
+    "owner": "gaussa72-boop",
+    "category": "Webshop",
+    "url": "https://github.com/gaussa72-boop/Bullrun.Apparel"
+  },
+  {
+    "name": "KI-Game-Mod",
+    "owner": "gaussa72-boop",
+    "category": "Game Engine",
+    "url": "https://github.com/gaussa72-boop/KI-Game-Mod"
+  },
+  {
+    "name": "Quantenformel.QAI",
+    "owner": "gaussa72-boop",
+    "category": "KI / Quanten",
+    "url": "https://github.com/gaussa72-boop/Quantenformel.QAI"
+  },
+  {
+    "name": "Note-KI",
+    "owner": "gaussa72-boop",
+    "category": "Produktivität",
+    "url": "https://github.com/gaussa72-boop/Note-KI"
+  },
+  {
+    "name": "Quantenformel",
+    "owner": "gaussa72-boop",
+    "category": "Forschung",
+    "url": "https://github.com/gaussa72-boop/Quantenformel"
+  },
+  {
+    "name": "QUANTUM-MIRROR-DARK-WONDERLAND",
+    "owner": "gaussa72-boop",
+    "category": "Kreativ / KI",
+    "url": "https://github.com/gaussa72-boop/QUANTUM-MIRROR-DARK-WONDERLAND"
+  },
+  {
+    "name": "Rea.Signature",
+    "owner": "gaussa72-boop",
+    "category": "Web / Marke",
+    "url": "https://github.com/gaussa72-boop/Rea.Signature"
+  },
+  {
+    "name": "Ultra_KI_Merge",
+    "owner": "gaussa72-boop",
+    "category": "Zentraler Merge",
+    "url": "https://github.com/gaussa72-boop/Ultra_KI_Merge"
+  },
+  {
+    "name": "Quantum-Shield",
+    "owner": "gaussa72-boop",
+    "category": "Sicherheit",
+    "url": "https://github.com/gaussa72-boop/Quantum-Shield"
+  },
+  {
+    "name": "Ate-Rea-",
+    "owner": "gaussa72-boop",
+    "category": "Ate Rea",
+    "url": "https://github.com/gaussa72-boop/Ate-Rea-"
+  },
+  {
+    "name": "Ate-Rea-Verm-chtnis",
+    "owner": "gaussa72-boop",
+    "category": "Ate Rea",
+    "url": "https://github.com/gaussa72-boop/Ate-Rea-Verm-chtnis"
+  },
+  {
+    "name": "Novatube",
+    "owner": "gaussa72-boop",
+    "category": "Medien",
+    "url": "https://github.com/gaussa72-boop/Novatube"
+  },
+  {
+    "name": "Omega.Aurealis",
+    "owner": "gaussa72-boop",
+    "category": "Aurealis",
+    "url": "https://github.com/gaussa72-boop/Omega.Aurealis"
+  },
+  {
+    "name": "Lichtkrieger",
+    "owner": "gaussa72-boop",
+    "category": "Game",
+    "url": "https://github.com/gaussa72-boop/Lichtkrieger"
+  },
+  {
+    "name": "The-Lord",
+    "owner": "gaussa72-boop",
+    "category": "Game",
+    "url": "https://github.com/gaussa72-boop/The-Lord"
+  },
+  {
+    "name": "Unify-App",
+    "owner": "gaussa72-boop",
+    "category": "App",
+    "url": "https://github.com/gaussa72-boop/Unify-App"
+  },
+  {
+    "name": "Aurealis-Trading",
+    "owner": "gaussa72-boop",
+    "category": "Trading",
+    "url": "https://github.com/gaussa72-boop/Aurealis-Trading"
+  },
+  {
+    "name": "Kryptoaurora",
+    "owner": "gaussa72-boop",
+    "category": "Krypto",
+    "url": "https://github.com/gaussa72-boop/Kryptoaurora"
+  },
+  {
+    "name": "Aurealis-Creative-AI",
+    "owner": "gaussa72-boop",
+    "category": "Kreativ / KI",
+    "url": "https://github.com/gaussa72-boop/Aurealis-Creative-AI"
+  },
+  {
+    "name": "Aurelis-Creative-AI-Studio",
+    "owner": "gaussa72-boop",
+    "category": "Kreativ / KI",
+    "url": "https://github.com/gaussa72-boop/Aurelis-Creative-AI-Studio"
+  },
+  {
+    "name": "ate-rea-characterverse",
+    "owner": "gaussa72-boop",
+    "category": "Ate Rea",
+    "url": "https://github.com/gaussa72-boop/ate-rea-characterverse"
+  },
+  {
+    "name": "Neuroforge",
+    "owner": "gaussa72-boop",
+    "category": "KI / Game",
+    "url": "https://github.com/gaussa72-boop/Neuroforge"
+  },
+  {
+    "name": "Aurealis-Shopping-AI",
+    "owner": "gaussa72-boop",
+    "category": "Shopping-KI",
+    "url": "https://github.com/gaussa72-boop/Aurealis-Shopping-AI"
+  },
+  {
+    "name": "Aktiv-Lyca",
+    "owner": "ariandomimate-blip",
+    "category": "Webshop",
+    "url": "https://github.com/ariandomimate-blip/Aktiv-Lyca"
+  },
+  {
+    "name": "Webshop.Parfum",
+    "owner": "ariandomimate-blip",
+    "category": "Webshop",
+    "url": "https://github.com/ariandomimate-blip/Webshop.Parfum"
+  },
+  {
+    "name": "sneaker",
+    "owner": "ariandomimate-blip",
+    "category": "Webshop",
+    "url": "https://github.com/ariandomimate-blip/sneaker"
+  },
+  {
+    "name": "rothshild-order",
+    "owner": "ariandomimate-blip",
+    "category": "Community / Web",
+    "url": "https://github.com/ariandomimate-blip/rothshild-order"
+  },
+  {
+    "name": "Drop-shipping",
+    "owner": "ariandomimate-blip",
+    "category": "Commerce",
+    "url": "https://github.com/ariandomimate-blip/Drop-shipping"
+  },
+  {
+    "name": "Autokrypt-B-rse",
+    "owner": "ariandomimate-blip",
+    "category": "Krypto",
+    "url": "https://github.com/ariandomimate-blip/Autokrypt-B-rse"
+  },
+  {
+    "name": "Ate-Rea-Verm-chtnis-chronik",
+    "owner": "ariandomimate-blip",
+    "category": "Ate Rea",
+    "url": "https://github.com/ariandomimate-blip/Ate-Rea-Verm-chtnis-chronik"
+  }
+];
+const agents=[
+["Ate Rea","Schöpfung · Vision · Inspiration","✺"],["Orion","Strategie · Führung · Expansion","☼"],["Aurealis","Koordination · Routing · Planung","✧"],["Quantar","Technologie · Code · Systeme","⌘"],["Lyra","Kommunikation · Community · Support","♫"],["Nexus","Netzwerk · Integration · Automatisierung","⌘"],["Vaelar","Sicherheit · Analyse · Monitoring","⬡"],["Cosmia","Kreativität · Medien · Design","✷"],["Tethys","Daten · Lernen · Optimierung","◈"],["Lumen","Wissen · Ausbildung · Entwicklung","✧"]];
+const $=s=>document.querySelector(s);
+function card(p,kind){return '<article class="tile"><span class="tag">'+p.category+'</span><h3>'+p.name+'</h3><p>'+p.owner+' · '+(kind==='repo'?'GitHub-Repository':'Projekt im Katalog')+'</p><a href="'+p.url+'" target="_blank" rel="noopener">Repository öffnen ↗</a></article>'}
+function renderProjects(q=''){const list=projects.filter(p=>(p.name+' '+p.category+' '+p.owner).toLowerCase().includes(q.toLowerCase()));$('#appGrid').innerHTML=list.map(p=>card(p,'app')).join('')||'<p>Keine Treffer.</p>';$('#repoGrid').innerHTML=list.map(p=>card(p,'repo')).join('')||'<p>Keine Treffer.</p>'}
+$('#repoCount').textContent=projects.length;$('#siteCount').textContent=projects.length;renderProjects();
+$('#agentGrid').innerHTML=agents.map(a=>'<article class="tile agent"><span class="agentIcon">'+a[2]+'</span><h3>'+a[0]+'</h3><p>'+a[1]+'</p><button class="action" data-persona="'+a[0]+'">Profil wählen</button></article>').join('');
+$('#siteAgentGrid').innerHTML=projects.map(p=>'<article class="tile"><h3>✦ '+p.name+' Agent</h3><p>'+p.category+' · '+p.owner+'<br>Eigene Persönlichkeit und Wartungsakte vorgesehen.</p><a href="'+p.url+'" target="_blank" rel="noopener">Projekt öffnen ↗</a></article>').join('');
+function show(id){document.querySelectorAll('.section').forEach(s=>s.classList.toggle('active',s.id===id));document.querySelectorAll('.nav').forEach(n=>n.classList.toggle('active',n.dataset.view===id));window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.view)));
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.go)));
+$('#appSearch').addEventListener('input',e=>renderProjects(e.target.value));$('#repoSearch').addEventListener('input',e=>renderProjects(e.target.value));
+document.addEventListener('click',e=>{const b=e.target.closest('[data-persona]');if(b){$('#personaSelect').value=b.dataset.persona+' · '+({ 'Ate Rea':'kreativ und poetisch','Orion':'strategisch und analytisch','Quantar':'Technik und Code','Lyra':'Kommunikation und Community','Vaelar':'Sicherheit und Prüfung'}[b.dataset.persona]||'zentrale Koordination');show('personalities')}});
+$('#personaSelect').addEventListener('change',e=>$('#personaDesc').textContent=e.target.value.split(' · ')[0]+' ist ausgewählt. Dieses Profil ist eine UI-Auswahl; die Modellverbindung folgt in der Backend-Integration.');
+function send(){const v=$('#chatInput').value.trim();if(!v)return;const box=$('#chatbox');box.innerHTML+='<div class="bubble me"></div><div class="bubble">Demo-Modus: Deine Nachricht wurde lokal erfasst. Für eine echte Antwort muss '+$('#chatAgent').value+' mit einem geschützten KI-Backend verbunden werden.</div>';box.children[box.children.length-2].textContent=v;$('#chatInput').value='';box.scrollTop=box.scrollHeight}
+$('#sendChat').addEventListener('click',send);$('#chatInput').addEventListener('keydown',e=>{if(e.key==='Enter')send()});
+</script></body></html>
