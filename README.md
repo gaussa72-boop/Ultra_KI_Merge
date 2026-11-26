@@ -1,25 +1,11 @@
-<<<<<<< HEAD
-# Ultra-KI-Merge
-
-Zentrale KI-Anwendung aus den analysierten Projekten.
-
-Enthalten:
-- KI/Chat-Funktionen
-- Python-Backend
-- Web/API-Komponenten
-- relevante Telegram-Funktionen
-- Frontend-Komponenten
-- Konfiguration
-
-Entfernt:
-- Shopify
-- Lichtreich_wear
-- Printful
-- WooCommerce
-- reine Shop-/E-Commerce-Komponenten
-- Build-/Cache-/Umgebungsdateien
-
-API-Schlüssel niemals direkt in den Quellcode schreiben.
-=======
 # Ultra_KI_Merge
->>>>>>> 946a04b2b3f80b196930c3b6f968edf3eb6a5416
+
+Zentrales Merge-Repository für die analysierten KI- und Webprojekte.
+
+## AUREALIS OMNIA — Alliance AI
+
+Das Dashboard liegt unter [`unified-app/`](unified-app/). Es bündelt einen Projektkatalog der verbundenen GitHub-Konten, zehn Agentenrollen, ein Website-Agenten-Register, KI-Persönlichkeitsauswahl sowie Update-Matrix-, Monitoring- und Chat-Prototypen.
+
+Die Oberfläche kennzeichnet ausdrücklich, welche Funktionen nur als UI/Architektur vorhanden sind und welche externen Integrationen noch eingerichtet und verifiziert werden müssen. Keine API-Secrets im Frontend.
+
+Siehe [`unified-app/README.md`](unified-app/README.md) für Deployment und nächste Integrationsschritte.
