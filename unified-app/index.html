@@ -28,6 +28,22 @@
 .core-launch{border:0;padding:0;cursor:pointer}
 @media(max-width:760px){.hero{min-height:430px;border-radius:18px}.orbit{width:100%;transform:translate(-50%,-50%) scale(.78)}.p1{left:-1%}.p4{right:-1%}.copilot-launch{padding:15px}.agent-choices{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:420px){.hero{min-height:390px}.orbit{transform:translate(-50%,-50%) scale(.64)}.agent-choice{padding:10px;min-height:100px}.copilot-tools select{min-width:100%}}
+
+/* Reference match: black-hole stargate portal from supplied image */
+html,body{background:#000!important}
+body{background:#000!important}
+.hero{aspect-ratio:16/9;min-height:0;height:auto;margin:20px 0 12px;border:0;border-radius:0;background:#01030a url('./cosmic-portal.svg') center center/cover no-repeat;box-shadow:0 0 55px #06192c;overflow:hidden;isolation:isolate}
+.hero:before,.hero:after{display:none!important}
+.core.core-launch{left:50%;top:48.7%;transform:translate(-50%,-50%);width:76px;height:76px;border:0;border-radius:50%;background:transparent;box-shadow:none;animation:none;color:transparent;cursor:pointer}
+.core.core-launch>div{opacity:0}
+.core.core-launch:hover{background:#8acde21a;box-shadow:0 0 28px #ccefff66}
+.orbit,.heroNote{display:none!important}
+.comet{left:50%;top:48.7%;width:8px;height:8px;background:#fff;box-shadow:0 0 12px 5px #d9f4ff,0 0 34px 14px #f6ce81;animation:gateFlight 7.5s cubic-bezier(.45,0,.55,1) infinite}
+.comet:after{height:36px;background:linear-gradient(to top,#8bc9e000,#fff0bd);transform:rotate(25deg)}
+@keyframes gateFlight{0%,100%{transform:translate(-50%,-50%) scale(.55);opacity:.35}12%{transform:translate(-50%,-50%) translate(-12px,-34px) scale(.8);opacity:1}28%{transform:translate(-50%,-50%) translate(-92px,-110px) scale(1.15);opacity:1}45%{transform:translate(-50%,-50%) translate(0,-185px) scale(1.35);opacity:1}62%{transform:translate(-50%,-50%) translate(112px,-95px) scale(1.05);opacity:1}82%{transform:translate(-50%,-50%) translate(0,180px) scale(1.3);opacity:1}}
+.copilot-launch{margin:14px 0 24px;border-color:#b28a53;background:#05070d;box-shadow:0 12px 50px #000}
+@media(max-width:850px){.hero{width:100%;aspect-ratio:16/9;min-height:0;height:auto;margin:12px 0}.core.core-launch{width:64px;height:64px}}
+@media(prefers-reduced-motion:reduce){.comet{animation:none;opacity:.8}}
 </style></head><body><div class="shell"><aside class="side"><div class="brand"><div class="sigil">✧</div><b>AUREALIS OMNIA</b><small>ALLIANCE AI · COSMIC OS</small></div>
 <button class="nav active" data-view="overview">⌂ Übersicht</button><button class="nav" data-view="apps">✧ Alle Web-Apps</button><button class="nav" data-view="repos">⌘ Repositories</button><button class="nav" data-view="agents">☼ 10 Agenten</button><button class="nav" data-view="webagents">✦ Website-Agenten</button><button class="nav" data-view="personalities">◉ KI-Persönlichkeiten</button><button class="nav" data-view="matrix">⟳ Update Matrix</button><button class="nav" data-view="deploys">↗ Deployments</button><button class="nav" data-view="monitor">⌁ Monitoring</button><button class="nav" data-view="chat">✧ KI-Chat</button><div class="sidefoot">Ein gemeinsames Cockpit für alle Projekte.<br>Verbindungen werden transparent ausgewiesen.</div></aside>
 <main class="main"><div class="top"><div><div class="eyebrow">Dein verbundenes Projekt-Universum</div><h1>AUREALIS OMNIA</h1><div style="color:#b9a98e;font-size:13px">Alliance AI · Zentrale für Apps, Agenten und Updates</div></div><div class="status">● Cockpit bereit · Live-Integrationen in Prüfung</div></div>
